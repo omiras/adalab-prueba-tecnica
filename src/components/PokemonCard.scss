@@ -1,0 +1,24 @@
+.pokemon {
+    width: clamp(200px, 30%, 300px);
+    border-radius: 4px;
+    border: 1px solid #C8C3AB;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+
+    .pokemon__header {
+        background-color: #DFDFDF;
+        position: relative;
+    }
+
+    .pokemon__image {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .pokemon__id {
+        background-color: #D1CDCA;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+    }
+}

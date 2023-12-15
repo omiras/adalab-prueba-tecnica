@@ -1,3 +1,4 @@
+import "./App.scss";
 import { useEffect, useState } from "react";
 import PokemonCard from "./components/PokemonCard";
 
@@ -54,7 +55,13 @@ function App() {
 
   return (
     <>
-      <PokemonCard />
+      <PokemonCard
+        id="17"
+        name="pidgeotto"
+        image="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/17.png"
+        types={["normal", "flying"]}
+        evolvesFrom={["pidgey"]}
+      />
       <div
         style={{
           display: "flex",

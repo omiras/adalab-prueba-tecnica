@@ -2,6 +2,20 @@ import { useEffect, useState } from "react";
 import PokemonCard from "./components/PokemonCard";
 
 function App() {
+  const fetchSinglePokemon = async (pokemonName) => {
+    const responseSinglePokemon = await fetch(
+      `https://pokeapi.co/api/v2/pokemon/${pokemonName}`
+    );
+    const dataSinglePokemon = await responseSinglePokemon.json();
+    return dataSinglePokemon;
+  };
+
+  const fetchPokemonSpecies = async (urlSpacies) => {
+    const response = await fetch(urlSpacies);
+    const data = await response.json();
+    return data;
+  };
+
   const [pokemons, setPokemons] = useState([]);
 
   useEffect(() => {
@@ -12,22 +26,24 @@ function App() {
       const mappedPokemons = [];
 
       for (const p of data.results) {
-        const responseSinglePokemon = await fetch(
-          `https://pokeapi.co/api/v2/pokemon/${p.name}`
+        const dataSinglePokemon = await fetchSinglePokemon(p.name);
+        console.log(
+          "🚀 ~ file: App.jsx:31 ~ fetchPokemons ~ dataSinglePokemon:",
+          dataSinglePokemon
         );
-        const dataSinglePokemon = await responseSinglePokemon.json();
 
-        const responseEvolution = await fetch(
-          `https://pokeapi.co/api/v2/evolution-chain/${dataSinglePokemon.id}`
+        const dataSpecies = await fetchPokemonSpecies(
+          dataSinglePokemon.species.url
         );
-        const dataEvolution = await responseEvolution.json();
 
         mappedPokemons.push({
           id: dataSinglePokemon.id,
           name: dataSinglePokemon.name,
           image: dataSinglePokemon.sprites.front_default,
           types: dataSinglePokemon.types.map((t) => t.type.name),
-          evolutions: dataEvolution.chain.evolves_to.map((e) => e.species.name),
+          evolvesFrom:
+            dataSpecies.evolves_from_species &&
+            dataSpecies.evolves_from_species.name,
         });
       }
       return mappedPokemons;
@@ -38,8 +54,14 @@ function App() {
 
   return (
     <>
-      <div>
-        <PokemonCard />
+      <PokemonCard />
+      <div
+        style={{
+          display: "flex",
+          gap: "1rem",
+          flexWrap: "wrap",
+        }}
+      >
         {pokemons.map((p) => (
           <article
             style={{
@@ -54,7 +76,7 @@ function App() {
                 <img src={p.image}></img>
               </li>
               <li>Types: {p.types.join(" ")}</li>
-              <li>Evolutions: {p.evolutions.join(" ")}</li>
+              <li>Evolves from: {p.evolvesFrom}</li>
             </ul>
           </article>
         ))}

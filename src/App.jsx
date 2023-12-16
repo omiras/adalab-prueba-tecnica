@@ -55,13 +55,6 @@ function App() {
 
   return (
     <>
-      <PokemonCard
-        id="17"
-        name="pidgeotto"
-        image="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/17.png"
-        types={["normal", "flying"]}
-        evolvesFrom={["pidgey"]}
-      />
       <div
         style={{
           display: "flex",
@@ -70,22 +63,14 @@ function App() {
         }}
       >
         {pokemons.map((p) => (
-          <article
-            style={{
-              border: "1px solid black",
-            }}
+          <PokemonCard
             key={p.id}
-          >
-            <ul>
-              <li>Id: {p.id}</li>
-              <li>Name: {p.name}</li>
-              <li>
-                <img src={p.image}></img>
-              </li>
-              <li>Types: {p.types.join(" ")}</li>
-              <li>Evolves from: {p.evolvesFrom}</li>
-            </ul>
-          </article>
+            id={p.id}
+            name={p.name}
+            image={p.image}
+            types={p.types}
+            evolvesFrom={p.evolvesFrom}
+          />
         ))}
       </div>
     </>

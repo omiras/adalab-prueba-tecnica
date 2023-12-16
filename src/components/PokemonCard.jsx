@@ -11,13 +11,19 @@ const PokemonCard = ({ id, name, image, types, evolvesFrom }) => {
           ID / <span>{id}</span>
         </div>
       </div>
-      <div>
-        <div>{name}</div>
-        <div>{types}</div>
-        <div>
-          <div>Evoluciona de:</div>
-          <div>{evolvesFrom}</div>
+      <div className="pokemon__info">
+        <div className="pokemon__name">{name}</div>
+        <div className="pokemon__types">
+          {types.map((t) => (
+            <span key={t}>{t}</span>
+          ))}
         </div>
+        {evolvesFrom && (
+          <div className="pokemon__evolution">
+            <div>Evoluciona de:</div>
+            <div className="pokemon__previous--evolution">{evolvesFrom}</div>
+          </div>
+        )}
       </div>
     </div>
   );

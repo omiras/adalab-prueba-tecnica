@@ -18,6 +18,10 @@ function App() {
   };
 
   const [pokemons, setPokemons] = useState([]);
+  const [filterByName, setFilterByName] = useState("er");
+  const filteredPokemons = pokemons.filter((p) =>
+    new RegExp(filterByName, "i").test(p.name)
+  );
 
   useEffect(() => {
     const fetchPokemons = async () => {
@@ -57,7 +61,7 @@ function App() {
     <>
       <div className="main-container">
         <div className="pokemons__container">
-          {pokemons.map((p) => (
+          {filteredPokemons.map((p) => (
             <PokemonCard
               key={p.id}
               id={p.id}

@@ -56,14 +56,7 @@ function App() {
   return (
     <>
       <div className="main-container">
-        <div
-          className="pokemons__container"
-          style={{
-            display: "flex",
-            gap: "1rem",
-            flexWrap: "wrap",
-          }}
-        >
+        <div className="pokemons__container">
           {pokemons.map((p) => (
             <PokemonCard
               key={p.id}
@@ -76,6 +69,10 @@ function App() {
           ))}
         </div>
       </div>
+      <div className="triangle-left"></div>
+      <div className="triangle-right"></div>
+      <div className="circle-left"></div>
+      <div className="circle-right"></div>
     </>
   );
 }

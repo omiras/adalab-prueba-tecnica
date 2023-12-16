@@ -55,23 +55,26 @@ function App() {
 
   return (
     <>
-      <div
-        style={{
-          display: "flex",
-          gap: "1rem",
-          flexWrap: "wrap",
-        }}
-      >
-        {pokemons.map((p) => (
-          <PokemonCard
-            key={p.id}
-            id={p.id}
-            name={p.name}
-            image={p.image}
-            types={p.types}
-            evolvesFrom={p.evolvesFrom}
-          />
-        ))}
+      <div className="main-container">
+        <div
+          className="pokemons__container"
+          style={{
+            display: "flex",
+            gap: "1rem",
+            flexWrap: "wrap",
+          }}
+        >
+          {pokemons.map((p) => (
+            <PokemonCard
+              key={p.id}
+              id={p.id}
+              name={p.name}
+              image={p.image}
+              types={p.types}
+              evolvesFrom={p.evolvesFrom}
+            />
+          ))}
+        </div>
       </div>
     </>
   );

@@ -1,0 +1,21 @@
+.main-container {
+    display: flex;
+    justify-content: center;
+    padding-top: 1rem;
+    align-items: center;
+    background-color: #FFE62C;
+}
+
+.pokemons__container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+@media (min-width: 800px) {
+    
+    .pokemons__container {
+        max-width: 80%;
+    }
+
+}

@@ -1,0 +1,53 @@
+.triangle {
+  width: 0;
+  height: 0;
+  position: fixed;
+  transition: all 1s;
+
+  @media (max-width: 370px) {
+    display: none;
+  }
+}
+
+.circle {
+  width: 50px;
+  height: 50px;
+  position: fixed;
+  background-color: red;
+
+  @media (max-width: 370px) {
+    display: none;
+  }
+}
+
+.triangle-left {
+  @extend .triangle;
+  border-left: 50px solid black;
+  border-right: 50px solid transparent;
+  border-bottom: 50px solid transparent;
+  top: 0;
+  left: 0;
+}
+
+.triangle-right {
+  @extend .triangle;
+  top: 0;
+  right: 0;
+  border-left: 50px solid transparent;
+  border-right: 50px solid black;
+  border-bottom: 50px solid transparent;
+}
+
+.circle-left {
+  @extend .circle;
+  bottom: 0;
+  left: 0;
+  border-top-right-radius: 100%;
+}
+
+.circle-right {
+  @extend .circle;
+  bottom: 0;
+  right: 0;
+  border-top-left-radius: 100%;
+}

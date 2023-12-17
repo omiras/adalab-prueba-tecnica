@@ -1,8 +1,8 @@
-import "./App.scss";
+import "./Home.scss";
 import { useEffect, useState } from "react";
-import PokemonCard from "./components/PokemonCard";
+import PokemonCard from "../components/PokemonCard";
 
-function App() {
+function Home() {
   const fetchSinglePokemon = async (pokemonName) => {
     const responseSinglePokemon = await fetch(
       `https://pokeapi.co/api/v2/pokemon/${pokemonName}`
@@ -87,12 +87,9 @@ function App() {
           </div>
         </div>
       </div>
-      <div className="triangle-left"></div>
-      <div className="triangle-right"></div>
-      <div className="circle-left"></div>
-      <div className="circle-right"></div>
+
     </>
   );
 }
 
-export default App;
+export default Home;

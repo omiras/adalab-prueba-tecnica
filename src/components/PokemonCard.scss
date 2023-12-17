@@ -66,6 +66,10 @@ $accentColor: #A08474;
 
 
     }
+}
 
-    
+@media (min-width: 800px) {
+    .pokemon {
+        width: auto;
+    }
 }

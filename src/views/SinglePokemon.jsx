@@ -24,13 +24,20 @@ export default function SinglePokemon() {
 
   return (
     <>
-      <PokemonCard
-        id={pokemon.id}
-        name={pokemon.name}
-        image={pokemon.image}
-        types={pokemon.types}
-        evolvesFrom={pokemon.evolvesFrom}
-      />
+      <div
+        style={{
+          width: "340px",
+          margin: "0 auto",
+        }}
+      >
+        <PokemonCard
+          id={pokemon.id}
+          name={pokemon.name}
+          image={pokemon.image}
+          types={pokemon.types}
+          evolvesFrom={pokemon.evolvesFrom}
+        />
+      </div>
       <Link to={"/"}>
         <div
           style={{

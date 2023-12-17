@@ -1,22 +1,9 @@
 import "./Home.scss";
 import { useEffect, useState } from "react";
+import { getPokemons } from "../services/ApiServices";
 import PokemonCard from "../components/PokemonCard";
 
 function Home() {
-  const fetchSinglePokemon = async (pokemonName) => {
-    const responseSinglePokemon = await fetch(
-      `https://pokeapi.co/api/v2/pokemon/${pokemonName}`
-    );
-    const dataSinglePokemon = await responseSinglePokemon.json();
-    return dataSinglePokemon;
-  };
-
-  const fetchPokemonSpecies = async (urlSpacies) => {
-    const response = await fetch(urlSpacies);
-    const data = await response.json();
-    return data;
-  };
-
   const [pokemons, setPokemons] = useState([]);
   const [filterByName, setFilterByName] = useState("");
   const filteredPokemons = pokemons.filter((p) =>
@@ -25,32 +12,7 @@ function Home() {
 
   useEffect(() => {
     const fetchPokemons = async () => {
-      const response = await fetch("https://pokeapi.co/api/v2/pokemon");
-      const data = await response.json();
-
-      const mappedPokemons = [];
-
-      for (const p of data.results) {
-        const dataSinglePokemon = await fetchSinglePokemon(p.name);
-        console.log(
-          "🚀 ~ file: App.jsx:31 ~ fetchPokemons ~ dataSinglePokemon:",
-          dataSinglePokemon
-        );
-
-        const dataSpecies = await fetchPokemonSpecies(
-          dataSinglePokemon.species.url
-        );
-
-        mappedPokemons.push({
-          id: dataSinglePokemon.id,
-          name: dataSinglePokemon.name,
-          image: dataSinglePokemon.sprites.front_default,
-          types: dataSinglePokemon.types.map((t) => t.type.name),
-          evolvesFrom:
-            dataSpecies.evolves_from_species &&
-            dataSpecies.evolves_from_species.name,
-        });
-      }
+      const mappedPokemons = await getPokemons();
       return mappedPokemons;
     };
 
@@ -87,7 +49,6 @@ function Home() {
           </div>
         </div>
       </div>
-
     </>
   );
 }

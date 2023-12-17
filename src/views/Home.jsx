@@ -1,5 +1,6 @@
 import "./Home.scss";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { getPokemons } from "../services/ApiServices";
 import PokemonCard from "../components/PokemonCard";
 
@@ -37,14 +38,15 @@ function Home() {
           />
           <div className="pokemons__list">
             {filteredPokemons.map((p) => (
-              <PokemonCard
-                key={p.id}
-                id={p.id}
-                name={p.name}
-                image={p.image}
-                types={p.types}
-                evolvesFrom={p.evolvesFrom}
-              />
+              <Link key={p.id} to={`/pokemon/${p.name}`}>
+                <PokemonCard
+                  id={p.id}
+                  name={p.name}
+                  image={p.image}
+                  types={p.types}
+                  evolvesFrom={p.evolvesFrom}
+                />
+              </Link>
             ))}
           </div>
         </div>

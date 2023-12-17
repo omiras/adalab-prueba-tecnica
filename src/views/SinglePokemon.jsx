@@ -1,5 +1,5 @@
 import PokemonCard from "../components/PokemonCard";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { getPokemonByName } from "../services/ApiServices";
 
@@ -31,6 +31,21 @@ export default function SinglePokemon() {
         types={pokemon.types}
         evolvesFrom={pokemon.evolvesFrom}
       />
+      <Link to={"/"}>
+        <div
+          style={{
+            backgroundColor: "#f1f1f1",
+            padding: "8px 16px",
+            borderRadius: "8px",
+            border: "1px solid black",
+            margin: "1rem auto",
+            width: "200px",
+            cursor: "pointer",
+          }}
+        >
+          Volver al listado
+        </div>
+      </Link>
     </>
   );
 }

@@ -1,4 +1,5 @@
 import PokemonCard from "../components/PokemonCard";
+import Button from "../components/ux/Button";
 import { useParams, Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { getPokemonByName } from "../services/ApiServices";
@@ -26,8 +27,9 @@ export default function SinglePokemon() {
     <>
       <div
         style={{
-          width: "340px",
-          margin: "0 auto",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
         }}
       >
         <PokemonCard
@@ -39,19 +41,9 @@ export default function SinglePokemon() {
         />
       </div>
       <Link to={"/"}>
-        <div
-          style={{
-            backgroundColor: "#f1f1f1",
-            padding: "8px 16px",
-            borderRadius: "8px",
-            border: "1px solid black",
-            margin: "1rem auto",
-            width: "200px",
-            cursor: "pointer",
-          }}
-        >
-          Volver al listado
-        </div>
+        <Button>
+          <div>Volver al listado</div>
+        </Button>
       </Link>
     </>
   );

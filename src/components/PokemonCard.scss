@@ -65,33 +65,40 @@ $accentColor: #a08474;
   }
 }
 
+.pokemon--hover:hover {
+  cursor: pointer;
+  transform: scale(1.02);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  animation: all 1s;
+}
+
 .pokemon--big {
   .pokemon__image img {
     width: 300px;
   }
 
   .pokemon__id {
-    font-size: 2vw;
+    font-size: max(2vw, 2rem);
   }
 
   .pokemon__info {
     .pokemon__name {
-      font-size: 3vw;
+      font-size: max(3vw, 3rem);
       font-weight: bold;
       text-transform: capitalize;
     }
 
     .pokemon__types {
       span {
-        font-size: 1.5vw;
+        font-size: max(1.5vw, 1.5rem);
       }
     }
 
     .pokemon__evolution {
-      font-size: 2.5vw;
+      font-size: max(2.5vw, 2.5rem);
 
       .pokemon__previous--evolution {
-        font-size: 1.5vw;
+        font-size: max(2vw, 2rem);
       }
     }
   }

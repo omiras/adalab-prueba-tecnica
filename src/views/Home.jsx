@@ -9,7 +9,7 @@ import Button from "../components/ux/Button";
 function Home() {
   const [pokemons, setPokemons] = useState([]);
   const [page, setPage] = useState(1);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [filterByName, setFilterByName] = useState("");
   const filteredPokemons = pokemons.filter((p) =>
     new RegExp(filterByName, "i").test(p.name)
@@ -37,51 +37,41 @@ function Home() {
     setFilterByName(event.target.value);
   };
 
-  if (filteredPokemons.length == 0) {
-    return (
-      <div className="main-container">
-        <h1>
-          <input
-            readOnly={loading}
-            type="text"
-            name="filter-name"
-            className="filter-name"
-            value={filterByName}
-            onChange={handleChangeFilterName}
-            placeholder="Filtra pokemons por nombre..."
-          />
-          ¡No hay pokemons que contengan la palabra <em>{filterByName}</em>!
-        </h1>
-      </div>
-    );
-  }
-
   return (
     <>
       <div className="main-container">
         <div className="pokemon__component">
-          <input
-            readOnly={loading}
-            type="text"
-            name="filter-name"
-            className="filter-name"
-            value={filterByName}
-            onChange={handleChangeFilterName}
-            placeholder="Filtra pokemons por nombre..."
-          />
-          <div className="pokemons__list">
-            {filteredPokemons.map((p) => (
-              <Link key={p.id} to={`/pokemon/${p.name}`}>
-                <PokemonCard
-                  id={p.id}
-                  name={p.name}
-                  image={p.image}
-                  types={p.types}
-                  evolvesFrom={p.evolvesFrom}
-                />
-              </Link>
-            ))}
-          </div>
+          {!loading && (
+            <input
+              readOnly={loading}
+              type="text"
+              name="filter-name"
+              className="filter-name"
+              value={filterByName}
+              onChange={handleChangeFilterName}
+              placeholder="Filtra pokemons por nombre..."
+            />
+          )}
+          {!loading && filteredPokemons.length == 0 && (
+            <h1>
+              No se encuentran pokemons con la palabra <em>{filterByName}</em>
+            </h1>
+          )}
+          {filteredPokemons.length != 0 && (
+            <div className="pokemons__list">
+              {filteredPokemons.map((p) => (
+                <Link key={p.id} to={`/pokemon/${p.name}`}>
+                  <PokemonCard
+                    id={p.id}
+                    name={p.name}
+                    image={p.image}
+                    types={p.types}
+                    evolvesFrom={p.evolvesFrom}
+                  />
+                </Link>
+              ))}
+            </div>
+          )}
         </div>
         {loading && <Spinner />}
 

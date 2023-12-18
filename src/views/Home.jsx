@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { getPokemons } from "../services/ApiServices";
 import PokemonCard from "../components/PokemonCard";
 import Spinner from "../components/UX/Spinner";
+import Button from "../components/ux/Button";
 
 function Home() {
   const [pokemons, setPokemons] = useState([]);
@@ -36,6 +37,25 @@ function Home() {
     setFilterByName(event.target.value);
   };
 
+  if (filteredPokemons.length == 0) {
+    return (
+      <div className="main-container">
+        <h1>
+          <input
+            readOnly={loading}
+            type="text"
+            name="filter-name"
+            className="filter-name"
+            value={filterByName}
+            onChange={handleChangeFilterName}
+            placeholder="Filtra pokemons por nombre..."
+          />
+          ¡No hay pokemons que contengan la palabra <em>{filterByName}</em>!
+        </h1>
+      </div>
+    );
+  }
+
   return (
     <>
       <div className="main-container">
@@ -65,21 +85,9 @@ function Home() {
         </div>
         {loading && <Spinner />}
 
-        {!loading && (
-          <div
-            onClick={handleNextPage}
-            style={{
-              backgroundColor: "#f1f1f1",
-              padding: "8px 16px",
-              borderRadius: "8px",
-              border: "1px solid black",
-              margin: "1rem auto",
-              width: "200px",
-              cursor: "pointer",
-            }}
-          >
-            {" "}
-            Cargar más pokemons
+        {!loading && !filterByName && (
+          <div onClick={handleNextPage}>
+            <Button>Cargar más pokemons</Button>
           </div>
         )}
       </div>

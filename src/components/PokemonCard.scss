@@ -64,3 +64,35 @@ $accentColor: #a08474;
     }
   }
 }
+
+.pokemon--big {
+  .pokemon__image img {
+    width: 300px;
+  }
+
+  .pokemon__id {
+    font-size: 2vw;
+  }
+
+  .pokemon__info {
+    .pokemon__name {
+      font-size: 3vw;
+      font-weight: bold;
+      text-transform: capitalize;
+    }
+
+    .pokemon__types {
+      span {
+        font-size: 1.5vw;
+      }
+    }
+
+    .pokemon__evolution {
+      font-size: 2.5vw;
+
+      .pokemon__previous--evolution {
+        font-size: 1.5vw;
+      }
+    }
+  }
+}

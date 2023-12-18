@@ -40,6 +40,7 @@ export default function SinglePokemon() {
           image={pokemon.image}
           types={pokemon.types}
           evolvesFrom={pokemon.evolvesFrom}
+          isBigCard={true}
         />
         <Link to={"/"}>
           <Button>

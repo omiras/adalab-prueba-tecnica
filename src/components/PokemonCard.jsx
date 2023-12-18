@@ -1,8 +1,8 @@
 import "./PokemonCard.scss";
 
-const PokemonCard = ({ id, name, image, types, evolvesFrom }) => {
+const PokemonCard = ({ id, name, image, types, evolvesFrom, isBigCard }) => {
   return (
-    <div className="pokemon">
+    <div className={`${"pokemon"} ${isBigCard ? "pokemon--big" : ""}`}>
       <div className="pokemon__header">
         <div className="pokemon__image">
           <img src={image} alt={"pokemon" + name} />

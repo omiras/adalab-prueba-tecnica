@@ -1,6 +1,8 @@
+const BASE_API_URL = import.meta.env.VITE_BASE_API_URL || "https://pokeapi.co/api/v2";
+
 const fetchSinglePokemon = async (pokemonName) => {
   const responseSinglePokemon = await fetch(
-    `https://pokeapi.co/api/v2/pokemon/${pokemonName}`
+    `${BASE_API_URL}/pokemon/${pokemonName}`
   );
   const dataSinglePokemon = await responseSinglePokemon.json();
   return dataSinglePokemon;
@@ -35,7 +37,7 @@ export async function getPokemonByName(name) {
 }
 
 export async function getPokemons() {
-  const response = await fetch("https://pokeapi.co/api/v2/pokemon");
+  const response = await fetch(`${BASE_API_URL}/pokemon`);
   const data = await response.json();
 
   const mappedPokemons = [];

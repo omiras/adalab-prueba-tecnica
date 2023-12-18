@@ -17,9 +17,9 @@ function Home() {
   useEffect(() => {
     console.log("Se invocad el useEffect");
     const fetchPokemons = async () => {
-      setLoading(true); 
+      setLoading(true);
       const mappedPokemons = await getPokemons(page);
-      setLoading(false); 
+      setLoading(false);
       return mappedPokemons;
     };
 
@@ -41,6 +41,7 @@ function Home() {
       <div className="main-container">
         <div className="pokemon__component">
           <input
+            readOnly={loading}
             type="text"
             name="filter-name"
             className="filter-name"
@@ -63,6 +64,7 @@ function Home() {
           </div>
         </div>
         {loading && <Spinner />}
+
         {!loading && (
           <div
             onClick={handleNextPage}

@@ -28,8 +28,10 @@ export default function SinglePokemon() {
       <div
         style={{
           display: "flex",
+          flexDirection: "column",
           justifyContent: "center",
           alignItems: "center",
+          minHeight: "100vh",
         }}
       >
         <PokemonCard
@@ -39,12 +41,18 @@ export default function SinglePokemon() {
           types={pokemon.types}
           evolvesFrom={pokemon.evolvesFrom}
         />
+        <Link to={"/"}>
+          <Button>
+            <div
+              style={{
+                fontSize: "2rem",
+              }}
+            >
+              Volver al listado
+            </div>
+          </Button>
+        </Link>
       </div>
-      <Link to={"/"}>
-        <Button>
-          <div>Volver al listado</div>
-        </Button>
-      </Link>
     </>
   );
 }

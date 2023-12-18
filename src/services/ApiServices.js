@@ -36,8 +36,12 @@ export async function getPokemonByName(name) {
   };
 }
 
-export async function getPokemons() {
-  const response = await fetch(`${BASE_API_URL}/pokemon`);
+export async function getPokemons(page) {
+
+  const limit = 20;
+  const offset = (page - 1) * limit;
+
+  const response = await fetch(`${BASE_API_URL}/pokemon/?limit=${limit}&offset=${offset}`);
   const data = await response.json();
 
   const mappedPokemons = [];

@@ -11,3 +11,4 @@ Si se quiere usar la API desarrollada para la prueba técnica, copiar el fichero
 
 - Uso de TypeScript
 - Uso de [CSS modular](https://create-react-app.dev/docs/adding-a-css-modules-stylesheet/) para evitar conflictos en el nombre de las clases CSS
+- Separar en un componente la lista de pokemons

@@ -1,5 +1,11 @@
 # PokeAPI Cliente Prueba Técnica AdaLab
 
+## Live Site
+
+[Live Site](https://adalab-prueba-tecnica.vercel.app/)
+
+**Nota importante**: La primera carga puede tardar un poco, debido a que uso una instancia gratuita de https://render.com , y por defecto, para el servicio Web cuando no se usa por un tiempo.
+
 ## Setup
 
 `npm install`

@@ -1,8 +1,12 @@
-# React + Vite
+# PokeAPI Cliente Prueba Técnica AdaLab
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Setup
 
-Currently, two official plugins are available:
+`npm install`
+`npm run dev`
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Si se quiere usar la API desarrollada para la prueba técnica, copiar el fichero **.env.example** en el fichero **.env** para tener en cuenta la variable de entorno
+
+### Mejoras futuras
+
+- Uso de TypeScript

@@ -20,3 +20,4 @@ Si se quiere usar la API desarrollada para la prueba técnica, copiar el fichero
 - Separar en un componente la lista de pokemons
 - Botón o flechita para volver al inicio del a página
 - Carga progresiva de Pokémons, sin necesidad de hacer clic en el botón
+- No perder los pokémons cargados al volver de la vista detallada

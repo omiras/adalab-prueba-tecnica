@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { getPokemons } from "../services/ApiServices";
 import PokemonCard from "../components/PokemonCard";
-import Spinner from "../components/UX/Spinner";
+import Spinner from "../components/ux/Spinner";
 import Button from "../components/ux/Button";
 
 function Home() {

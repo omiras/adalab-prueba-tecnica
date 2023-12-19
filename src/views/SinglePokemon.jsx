@@ -9,7 +9,6 @@ export default function SinglePokemon() {
 
   // Como lo hacemos para recuperar la parte dinámica de esta ruta? Y poder hacer la consulta a la API o Base de Datos para recuperar la información de un pokemon en especifico
   const params = useParams();
-  console.log("variable params: ", params);
 
   useEffect(() => {
     getPokemonByName(params.name)

@@ -1,8 +1,22 @@
-# React + Vite
+# PokeAPI Cliente Prueba Técnica AdaLab
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Live Site
 
-Currently, two official plugins are available:
+[Live Site](https://adalab-prueba-tecnica.vercel.app/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+**Nota importante**: La primera carga puede tardar un poco, debido a que uso una instancia gratuita de https://render.com , y por defecto, para el servicio Web cuando no se usa por un tiempo.
+
+## Setup
+
+`npm install`
+`npm run dev`
+
+Si se quiere usar la API desarrollada para la prueba técnica, copiar el fichero **.env.example** en el fichero **.env** para tener en cuenta la variable de entorno
+
+### Mejoras futuras
+
+- Uso de TypeScript
+- Uso de [CSS modular](https://create-react-app.dev/docs/adding-a-css-modules-stylesheet/) para evitar conflictos en el nombre de las clases CSS
+- Separar en un componente la lista de pokemons
+- Botón o flechita para volver al inicio del a página
+- Carga progresiva de Pokémons, sin necesidad de hacer clic en el botón

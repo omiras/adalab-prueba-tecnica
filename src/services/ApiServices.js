@@ -14,12 +14,13 @@ const fetchPokemonSpecies = async (urlSpacies) => {
   return data;
 };
 
+// La diferencia con las funciónes fetch es que las funciones exportadas, además, mapean los pokémon para la app
 export async function getPokemonByName(name) {
   const dataSinglePokemon = await fetchSinglePokemon(name);
-  console.log(
-    "🚀 ~ file: App.jsx:31 ~ fetchPokemons ~ dataSinglePokemon:",
-    dataSinglePokemon
-  );
+  // console.log(
+  // "🚀 ~ file: App.jsx:31 ~ fetchPokemons ~ dataSinglePokemon:",
+  // dataSinglePokemon
+  // );
 
   const dataSpecies = await fetchPokemonSpecies(
     dataSinglePokemon.species.url

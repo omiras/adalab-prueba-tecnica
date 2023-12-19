@@ -9,6 +9,7 @@ export const Layout = () => {
       <BrowserRouter>
         <Routes>
           {/**  Cuando accedas al directorio raiz, renderizame el componente home.js */}
+
           <Route path="/" element={<Home />} />
           <Route path="/pokemon/:name" element={<SinglePokemon />} />
           <Route path="*" element={<h1>Not found!</h1>} />

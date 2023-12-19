@@ -14,9 +14,15 @@ function Home() {
   const filteredPokemons = pokemons.filter((p) =>
     new RegExp(filterByName, "i").test(p.name)
   );
+  const visibleItems = {
+    filter: !loading,
+    loadingSpinner: loading,
+    noPokemonsFound: !loading && filteredPokemons.length == 0,
+    pokemonList: filteredPokemons.length != 0,
+    nextButton: !loading && !filterByName,
+  };
 
   useEffect(() => {
-    console.log("Se invocad el useEffect");
     const fetchPokemons = async () => {
       setLoading(true);
       const mappedPokemons = await getPokemons(page);
@@ -41,7 +47,7 @@ function Home() {
     <>
       <div className="main-container">
         <div className="pokemon__component">
-          {!loading && (
+          {visibleItems.filter && (
             <input
               readOnly={loading}
               type="text"
@@ -52,12 +58,12 @@ function Home() {
               placeholder="Filtra pokemons por nombre..."
             />
           )}
-          {!loading && filteredPokemons.length == 0 && (
+          {visibleItems.noPokemonsFound && (
             <h1>
               No se encuentran pokemons con la palabra <em>{filterByName}</em>
             </h1>
           )}
-          {filteredPokemons.length != 0 && (
+          {visibleItems.pokemonList && (
             <div className="pokemons__list">
               {filteredPokemons.map((p) => (
                 <Link key={p.id} to={`/pokemon/${p.name}`}>
@@ -73,9 +79,9 @@ function Home() {
             </div>
           )}
         </div>
-        {loading && <Spinner />}
+        {visibleItems.loadingSpinner && <Spinner />}
 
-        {!loading && !filterByName && (
+        {visibleItems.nextButton && (
           <div onClick={handleNextPage}>
             <Button>Cargar más pokemons</Button>
           </div>
